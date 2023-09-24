@@ -6,7 +6,7 @@ public class Product {
     private int quantity;
     static int counter = 0;
 
-    static Date mfcdate;
+    private Date mfcdate;
 
     Product(String name,double price,int quantity,Date mfcdate){
         this.Id = counter++;
@@ -37,6 +37,11 @@ public class Product {
         return quantity;
     }
 
+    public String toString(){
+        String print_details = String.format(" Id: %d\n Name: %s\n Price: %.2f\n Quantity: %d\n %s ",Id,name,price,quantity,mfcdate);
+        return print_details;
+    }
+
     public void setMfcdate(Date mfcdate) {
         this.mfcdate = mfcdate;
     }
@@ -44,16 +49,15 @@ public class Product {
         return mfcdate;
     }
     public Product latest_product(Product P1, Product P2){
-        Date temp = mfcdate.isRecent(P1.mfcdate,P2.mfcdate);
-        if (temp == P1.mfcdate)
-            return P1;
-        else
-            return P2;
-    }
+//        Date temp = mfcdate.isRecent(P1.mfcdate,P2.mfcdate);
+//        if ( P1.getMfcdate()==mfcdate.isRecent(P1.getMfcdate(),P2.getMfcdate()))
+//            return P1;
+//        else
+//            return P2;
 
-    public String toString(){
-        String print_details = String.format(" Id: %d\n Name: %s\n Price: %.2f\n Quantity: %d\n %s",Id,name,price,quantity,mfcdate);
-        return print_details;
+        Date temp=mfcdate.isRecent(P1.mfcdate,P2.mfcdate);
+
+        return P1.mfcdate==mfcdate.isRecent(P1.getMfcdate(),P2.getMfcdate())?P1:P2;
     }
 }
 

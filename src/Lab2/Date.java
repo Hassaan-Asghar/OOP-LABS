@@ -2,15 +2,16 @@ package Lab2;
 public class Date {
     private int date;
     private String day;
-    private int month;
+    private String month;
     private int year;
 
-    public Date(int date, String day, int month, int year) {
+    public Date(int date, String day, String month, int year) {
         this.date = date;
-        this.day = day;
         this.month = month;
+        this.day = day;
         this.year = year;
     }
+
 
     public int getDate() {
         return date;
@@ -28,11 +29,11 @@ public class Date {
         this.day = day;
     }
 
-    public int getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(int month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 
@@ -43,15 +44,14 @@ public class Date {
     public void setYear(int year) {
         this.year = year;
     }
-    public Date isRecent(Date P1, Date P2) {
-        if (P1.getDate() > P2.getDate())
-            return P1;
-        else
-            return P2;
-    }
-    public String toString(){
-        String print_details = String.format("Date: %d\n Day: %s\n Month: %s\n Year: %d\n",date,day,month,year);
+    public String toString() {
+        String print_details = String.format("Date: %d\n Day: %s\n Month: %s\n Year: %d\n", date, day, month, year);
         return print_details;
     }
+
+    public Date isRecent(Date d1, Date d2) {
+        return d1.date > d2.date?d1:d2;
+    }
+
 }
 
