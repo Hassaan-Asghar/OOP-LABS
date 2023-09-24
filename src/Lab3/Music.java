@@ -69,18 +69,22 @@ public class Music {
         return print_details;
 
     }
-
     public boolean equals(Object o) {
-        if (o instanceof Music) {
-            Music m = (Music) o;
-            return m.getTitle().equals(this.title) && m.getArtist().getName().equals(this.getArtist().getName());
+        Music m = (Music) o;
+        if (m.getTitle().equals(this.title) && m.getArtist().getName().equals(this.getArtist().getName())) {
+            return true;
         }
-        return false;
+        else {
+            return false;
+        }
     }
-
-
-
+//        if (o instanceof Music) {
+//            Music m = (Music) o;
+//            return m.getTitle().equals(this.title) && m.getArtist().getName().equals(this.getArtist().getName());
+//        }
+//        return false;
 }
+
 
 
 
